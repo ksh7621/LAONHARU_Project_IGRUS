@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Alert, StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import {Agenda} from 'react-native-calendars';
+import moment from 'moment';
 
 //사이트의 example을 참고했습니다
 export default class AgendaScreen extends Component {
@@ -17,7 +18,7 @@ export default class AgendaScreen extends Component {
       <Agenda
         items={this.state.items}
         loadItemsForMonth={this.loadItems.bind(this)}
-        selected={'2017-05-16'}
+        selected={moment()}
         renderItem={this.renderItem.bind(this)}
         renderEmptyDate={this.renderEmptyDate.bind(this)}
         rowHasChanged={this.rowHasChanged.bind(this)}

@@ -2,20 +2,32 @@ import * as React from 'react';
 import { View, Text,Button } from 'react-native';
 import {CalendarList} from 'react-native-calendars'
 
+
+
+// LocaleConfig.locales['fr'] = {
+//   monthNames: ['해오름달','시샘달','물오름달','잎새달','푸른달','누리달','견우직녀달','타오름달','열매달','하늘연달','미틈달','매듭달'],
+//   monthNamesShort: ['1.','2.','3.','4.','5.','6.','7.','8.','9.','10.','11.','12.'],
+//   dayNames: ['일요일','월요일', '화요일','수요일','목요일','금요일','토요일'],
+//   dayNamesShort: ['일', '월','화','수','목','금','토'],
+//   today: 'Aujourd\'hui'
+// };
+// LocaleConfig.defaultLocale = 'fr';
+
 export default function CalendarScreen({ navigation }) {
     return (
+      
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         <CalendarList
             //캘린더 리스트는 캘린더의 params를 기본적으로 가지고 있습니다
             //이 param들은 default 형태가 있으니 필요하실 때만 적어주세요(필요할 때만 적어주셔도 된다는 이야기입니다)
             // 처음 앱을 켰을 때 보이는 날짜
-            current={'2020-01-26'}
+            current={'2021-01-26'}
             //최소 날짜
-            minDate={'2020-01-01'}
+            minDate={'2021-01-01'}
             //최대 날짜
-            maxDate={'2020-12-31'}
+            maxDate={'2021-12-31'}
             // 날짜가 눌렸을 때 어떤 것을 실행하도록 하는 핸들러 console.log부분에 다른 component나 함수를 넣어주시면 됩니다
-            onDayPress={(day) => {console.log('selected day', day)}}
+            onDayPress={(day) => {console.log('selected day', day)}}                  
             // 날짜가 길게 눌렸을 때 어떤 것을 실행하도록 하는 핸들러 console.log부분에 다른 component나 함수를 넣어주시면 됩니다
             onDayLongPress={(day) => {console.log('selected day', day)}}
             // 캘린더 맨 위에 있는 날짜 포맷을 결정해줍니다 다른 형태로 수정하고 싶으시면
@@ -68,5 +80,6 @@ export default function CalendarScreen({ navigation }) {
             
             />
       </View>
+     
     );
   }
