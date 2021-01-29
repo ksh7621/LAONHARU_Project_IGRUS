@@ -71,6 +71,7 @@ export default class AgendaScreen extends Component {
     }, 1000);
   }
   //아이템 뷰->이런 부분을 캘린더에 일정 추가 부분에 활용해주셔도 좋습니다
+  //Todo diary 구현
   renderItem(item) {
     return (
       <TouchableOpacity
