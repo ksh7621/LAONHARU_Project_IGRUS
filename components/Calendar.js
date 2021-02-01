@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { View, Text,Button } from 'react-native';
 import {CalendarList} from 'react-native-calendars'
+import Todo from './Todo';
 
 
 
@@ -27,7 +28,10 @@ export default function CalendarScreen({ navigation }) {
             //최대 날짜
             maxDate={'2021-12-31'}
             // 날짜가 눌렸을 때 어떤 것을 실행하도록 하는 핸들러 console.log부분에 다른 component나 함수를 넣어주시면 됩니다
-            onDayPress={(day) => {console.log('selected day', day)}}                  
+            onDayPress={(day) => {
+              component= {Todo}
+              //console.log('selected day', day)
+            }}                  
             // 날짜가 길게 눌렸을 때 어떤 것을 실행하도록 하는 핸들러 console.log부분에 다른 component나 함수를 넣어주시면 됩니다
             onDayLongPress={(day) => {console.log('selected day', day)}}
             // 캘린더 맨 위에 있는 날짜 포맷을 결정해줍니다 다른 형태로 수정하고 싶으시면
