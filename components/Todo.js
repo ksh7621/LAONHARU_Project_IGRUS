@@ -1,4 +1,4 @@
-import React from 'react';
+
 import TodoInsert from './TodoInsert';
 import TodoList from './TodoList';
 import {
@@ -9,14 +9,40 @@ import {
   Text,
   ScrollView,
 } from 'react-native';
+import React, {useState} from 'react';
+
 
 const Todo = () => {
+    const [todos, setTodos] = useState([]);
+
+    const addTodo = text => {
+        setTodos([
+          ...todos,
+          {id: Math.random().toString(), textValue: text, checked: false},
+        ]);
+      };
+
+      const onRemove = id => e => {
+        setTodos(todos.filter(todo => todo.id !== id));
+    };
+
+    const onToggle = id => e => {
+        setTodos(
+          todos.map(todo =>
+            todo.id === id ? {...todo, checked: !todo.checked} : todo,
+          ),
+        );
+      };
+    
+
     return (
         <SafeAreaView style={styles.container}>
           <Text style={styles.appTitle}>To do list</Text>
           <View style={styles.card}>
-            <TodoInsert />
-            <TodoList />            
+             
+            <TodoInsert onAddTodo={addTodo} /> 
+            <TodoList todos={todos} onRemove={onRemove} onToggle={onToggle} />  
+
           </View>
         </SafeAreaView>
       );
