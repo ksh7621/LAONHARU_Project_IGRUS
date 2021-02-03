@@ -2,8 +2,7 @@ import * as React from 'react';
 import { View, Text,Button } from 'react-native';
 import {CalendarList} from 'react-native-calendars'
 import Todo from './Todo';
-
-
+import moment from 'moment';
 
 // LocaleConfig.locales['fr'] = {
 //   monthNames: ['해오름달','시샘달','물오름달','잎새달','푸른달','누리달','견우직녀달','타오름달','열매달','하늘연달','미틈달','매듭달'],
@@ -15,14 +14,16 @@ import Todo from './Todo';
 // LocaleConfig.defaultLocale = 'fr';
 
 export default function CalendarScreen({ navigation }) {
-    return (
-      
+
+const currentDate = new Date();
+
+    return (      
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         <CalendarList
             //캘린더 리스트는 캘린더의 params를 기본적으로 가지고 있습니다
             //이 param들은 default 형태가 있으니 필요하실 때만 적어주세요(필요할 때만 적어주셔도 된다는 이야기입니다)
             // 처음 앱을 켰을 때 보이는 날짜
-            current={'2021-01-26'}
+            current={currentDate}
             //최소 날짜
             minDate={'2021-01-01'}
             //최대 날짜

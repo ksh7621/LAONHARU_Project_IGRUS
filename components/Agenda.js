@@ -11,19 +11,19 @@ export default class AgendaScreen extends Component {
     this.state = {
       items: {},
       currentDate: new Date(),
-      markedDate: moment(new Date()).format("YYYY-MM-DD")
+      //markedDate: moment(new Date()).format("YYYY-MM-DD")
     };
   }
 
   render() {
     const today = this.state.currentDate;
-    const day = moment(today).format("dddd");
-    const date = moment(today).format("MMMM D, YYYY");
+   // const day = moment(today).format("dddd");
+    //const date = moment(today).format("MMMM D, YYYY");
     return (
       <Agenda      
         items={this.state.items}
         loadItemsForMonth={this.loadItems.bind(this)}
-        selected={date}
+        selected={today}
         renderItem={this.renderItem.bind(this)}
         renderEmptyDate={this.renderEmptyDate.bind(this)}
         rowHasChanged={this.rowHasChanged.bind(this)}
