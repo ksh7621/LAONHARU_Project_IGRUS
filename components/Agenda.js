@@ -17,7 +17,7 @@ export default class AgendaScreen extends Component {
 
   render() {
     const today = this.state.currentDate;
-   // const day = moment(today).format("dddd");
+    // const day = moment(today).format("dddd");
     //const date = moment(today).format("MMMM D, YYYY");
     return (
       <Agenda      
