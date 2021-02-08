@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { StyleSheet, View } from 'react-native'
-import { Text, IconButton, TextInput, FAB } from 'react-native-paper'
+import { Text, IconButton, TextInput, FAB, Appbar } from 'react-native-paper'
 import Header from './Header'
 
 function AddNotes({ navigation }) {
@@ -10,18 +10,20 @@ function AddNotes({ navigation }) {
     function onSaveNote() {
         navigation.state.params.addNote({ noteTitle, noteDescription })
         navigation.goBack()
-    }
+    }   
 
     return (
-        <>
-            <Header titleText='Add a New Note' />
-            <IconButton
-                icon="close"
+        
+        <>           
+           <Header titleText='Add a New Note' />
+            <IconButton            
+                icon ="close"
                 size={25}
-                color='white'
+                //color='white'
                 onPress={() => navigation.goBack()}
-                style={styles.iconButton}
-            />
+                //style={styles.iconButton}
+            />                     
+            
             
             <View style={styles.container}>
                 <TextInput
@@ -62,8 +64,8 @@ const styles = StyleSheet.create({
         paddingVertical: 20,
         paddingHorizontal: 10
     },
-    iconButton: {
-        backgroundColor: '#219653',
+    IconButton: {
+        backgroundColor: 'black',
         position: 'absolute',
         right: 0,
         top: 40,

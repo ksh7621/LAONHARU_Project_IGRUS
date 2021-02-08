@@ -17,7 +17,7 @@ function Header({ titleText }) {
 
 const styles = StyleSheet.create({
     headerContainer: {
-        backgroundColor: '#242424'
+        backgroundColor: 'black'
     },
     container: {
         flex: 1,
