@@ -21,20 +21,18 @@ function AddNotes({ navigation }) {
                 color='black'
                 onPress={() => navigation.goBack()}
                 style={styles.iconButton}
-            />                     
-          
-            
+            />             
             
             <View style={styles.container}>
                 <TextInput
-                    label="Add Note Title here"
+                    label="제목을 입력해주세요."
                     value={noteTitle}
                     mode='outlined'
                     onChangeText={setNoteTitle}
                     style={styles.title}
                 />
                 <TextInput
-                    label="Add Note Description"
+                    label="내용을 입력해주세요."
                     value={noteDescription}
                     onChangeText={setNoteDescription}
                     mode="flat"
@@ -62,7 +60,8 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#fff',
         paddingVertical: 20,
-        paddingHorizontal: 10
+        paddingHorizontal: 10,
+        fontFamily: "MapoGoldenPier", 
     },
     IconButton: {
         //backgroundColor: 'black',
@@ -74,15 +73,18 @@ const styles = StyleSheet.create({
     titleContainer: {
         alignItems: 'center',
         justifyContent: 'center',
-        flex: 1
+        flex: 1,
+        fontFamily: "MapoGoldenPier", 
     },
     title: {
         fontSize: 24,
-        marginBottom: 16
+        marginBottom: 16,
+        fontFamily: "MapoGoldenPier", 
     },
     text: {
         height: 300,
-        fontSize: 16
+        fontSize: 16,
+        fontFamily: "MapoGoldenPier", 
     },
     fab: {
         position: 'absolute',

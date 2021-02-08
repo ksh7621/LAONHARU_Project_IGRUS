@@ -17,7 +17,8 @@ function Header({ titleText, iconButton }) {
 
 const styles = StyleSheet.create({
     headerContainer: {
-        backgroundColor: 'black'
+        backgroundColor: 'black',
+        fontFamily: "MapoGoldenPier", 
 
     },
     container: {

@@ -28,7 +28,7 @@ function ViewNotes({ navigation }) {
             <View style={styles.container}>
                 {notes.length === 0 ? (
                     <View style={styles.titleContainer}>
-                        <Text style={styles.title}>You do not have any Notes</Text>
+                        <Text style={styles.title}>저장된 일기가 없습니다.</Text>
                     </View>
                 ) : (
                         <FlatList
@@ -50,7 +50,7 @@ function ViewNotes({ navigation }) {
                     style={styles.fab}
                     small
                     icon='plus'
-                    label='Add a new Note'
+                    label='일기 추가하기'
                     onPress={() => navigation.navigate('AddNotes', {
                         addNote
                     })
@@ -75,14 +75,16 @@ const styles = StyleSheet.create({
         flex: 1
     },
     title: {
-        fontSize: 20
+        fontSize: 20,
+        fontFamily: "MapoGoldenPier", 
     },
     fab: {
         backgroundColor: '#219653',
         position: 'absolute',
         margin: 20,
         right: 0,
-        bottom: 10
+        bottom: 10,
+        fontFamily: "MapoGoldenPier", 
     },
     listTitle: {
         fontSize: 20
