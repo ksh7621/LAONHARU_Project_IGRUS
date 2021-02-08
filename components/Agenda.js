@@ -58,7 +58,7 @@ export default class AgendaScreen extends Component {
           
           for (let j = 0; j < numItems; j++) {   
             this.state.items[strTime].push({
-              name: 'Item for ' + strTime + ' #' + j,
+              name: '클릭하여 일정을 추가하세요.',
               height: 100
             });
           }
@@ -89,7 +89,7 @@ export default class AgendaScreen extends Component {
   renderEmptyDate() {
     return (
       <View style={styles.emptyDate}>
-        <Text>This is empty date!</Text>
+        <Text>일정이 없습니다.</Text>
       </View>
     );
   }
@@ -111,11 +111,18 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     padding: 10,
     marginRight: 10,
-    marginTop: 17
+    marginTop: 17,
+    fontFamily: "MapoGoldenPier",     
   },
   emptyDate: {
     height: 15,
     flex: 1,
-    paddingTop: 30
+    paddingTop: 30,
+    fontFamily: "MapoGoldenPier", 
+  },
+  TouchableOpacity:{
+    fontFamily: "MapoGoldenPier", 
+
   }
+  
 });
