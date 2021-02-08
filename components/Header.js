@@ -1,13 +1,13 @@
 import React from 'react'
 import { View, StyleSheet } from 'react-native'
-import { Appbar, Title } from 'react-native-paper'
+import { Appbar, Title, IconButton, } from 'react-native-paper'
 
 
 
-function Header({ titleText }) {
+function Header({ titleText, iconButton }) {
     return (
-        <Appbar.Header style={styles.headerContainer}>
-            <View style={styles.container}>
+        <Appbar.Header style={styles.headerContainer}>           
+            <View style={styles.container}>                           
                 <Title style={styles.title}>{titleText}</Title>
             </View>
         </Appbar.Header>
@@ -18,6 +18,7 @@ function Header({ titleText }) {
 const styles = StyleSheet.create({
     headerContainer: {
         backgroundColor: 'black'
+
     },
     container: {
         flex: 1,
@@ -26,7 +27,8 @@ const styles = StyleSheet.create({
     },
     title: {
         color: '#fff'
-    }
+    },
+    
 })
 
 export default Header

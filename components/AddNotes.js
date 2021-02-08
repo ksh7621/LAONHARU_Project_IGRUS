@@ -12,17 +12,17 @@ function AddNotes({ navigation }) {
         navigation.goBack()
     }   
 
-    return (
-        
+    return (        
         <>           
-           <Header titleText='Add a New Note' />
+           <Header titleText='Add a New Note'/>               
             <IconButton            
                 icon ="close"
                 size={25}
-                //color='white'
+                color='black'
                 onPress={() => navigation.goBack()}
-                //style={styles.iconButton}
+                style={styles.iconButton}
             />                     
+          
             
             
             <View style={styles.container}>
@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 10
     },
     IconButton: {
-        backgroundColor: 'black',
+        //backgroundColor: 'black',
         position: 'absolute',
         right: 0,
         top: 40,

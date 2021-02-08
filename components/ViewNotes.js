@@ -24,7 +24,7 @@ function ViewNotes({ navigation }) {
 
     return (
         <>
-            <Header titleText='Simple Note Taking App' />
+            <Header titleText='Diary' />
             <View style={styles.container}>
                 {notes.length === 0 ? (
                     <View style={styles.titleContainer}>
