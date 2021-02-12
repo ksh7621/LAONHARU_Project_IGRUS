@@ -5,7 +5,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Home from './components/Home';
 import Calendar from './components/Calendar';
 import Agenda from './components/Agenda';
-import Diary from './components/Diary';
+import Dailychoice from './components/Dailychoice'
 import Icon from 'react-native-vector-icons/Ionicons';
 
 
@@ -41,7 +41,7 @@ export default function App() {
         <Tab.Screen name="Home" component={Home} />
         <Tab.Screen name="Calendar" component={Calendar} />
         <Tab.Screen name="Agenda" component={Agenda} />
-        <Tab.Screen name="Diary" component={Diary} />
+        <Tab.Screen name="DailyChoice" component={Dailychoice} />
       </Tab.Navigator>
     </NavigationContainer>
   );

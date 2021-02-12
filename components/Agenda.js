@@ -122,7 +122,6 @@ const styles = StyleSheet.create({
   },
   TouchableOpacity:{
     fontFamily: "MapoGoldenPier", 
-
   }
   
 });

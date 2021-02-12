@@ -4,7 +4,7 @@ import AppNavigator from './Index'
 import {Provider as StoreProvider} from 'react-redux'
 import store from './store'
 
-export default function App(){
+export default function Diary(){
   return (
     <StoreProvider store = {store}>
     <PaperProvider>

@@ -1,7 +1,8 @@
 import * as React from 'react';
-import { View, Text,Button } from 'react-native';
+import { View, Text,Button, StyleSheet } from 'react-native';
 import {CalendarList} from 'react-native-calendars'
 import Todo from './Todo';
+import Holiday from './Holiday';
 import moment from 'moment';
 
 // LocaleConfig.locales['fr'] = {
@@ -17,6 +18,7 @@ export default function CalendarScreen({ navigation }) {
 
 const currentDate = new Date();
 
+
     return (      
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         <CalendarList
@@ -28,6 +30,8 @@ const currentDate = new Date();
             minDate={'2021-01-01'}
             //최대 날짜
             maxDate={'2021-12-31'}
+            //공휴일 만들기
+            
             // 날짜가 눌렸을 때 어떤 것을 실행하도록 하는 핸들러 console.log부분에 다른 component나 함수를 넣어주시면 됩니다
             onDayPress={(day) => {
               component= {Todo}
@@ -88,3 +92,7 @@ const currentDate = new Date();
      
     );
   }
+
+  
+    
+    
