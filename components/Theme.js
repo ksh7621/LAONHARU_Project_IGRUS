@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components/native';
+import styled from 'styled-components';
 
 //styled component를 이용해서 Text component를 오버라이딩하는 느낌으로 수정하면 됩니다
 //Text의 속성을 그대로 가지면서 다른 속성들을 추가합니다
@@ -8,15 +8,22 @@ import styled from 'styled-components/native';
 //RN에서 제공하는 다른 모듈들도 동일하게 적용하면 됩니다(VIEW, etc...)
 //https://styled-components.com/docs/basics#react-native를 참고해주세요
 const Styledtext = styled.Text`
-    color : gold
+    font-family: MapoGoldenPier;
+   
 `;
-class Text extends React.Component {
-    render(){
-        return(
-           <Styledtext>
-               {this.props.text}
-           </Styledtext>
-        )
-    }
-}
-export default Text;
+// class Text extends React.Component {
+//     render(){
+//         return(
+//            <Styledtext>
+//                {this.props.text}
+//            </Styledtext>
+//         )
+//     }
+// }
+// export default Text;
+
+export default function Theme({ children }) {
+    return (
+    <Styledtext>{children}</Styledtext>
+    );
+  }

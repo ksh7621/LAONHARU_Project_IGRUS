@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Alert, StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import {Agenda} from 'react-native-calendars';
 import moment from 'moment';
-
+import Theme from "./Theme"
 //사이트의 example을 참고했습니다
 export default class AgendaScreen extends Component {
   constructor(props) {
@@ -56,7 +56,8 @@ export default class AgendaScreen extends Component {
           this.state.items[strTime] = [];
           const numItems = Math.floor(Math.random()+1);
           
-          for (let j = 0; j < numItems; j++) {   
+          for (let j = 0; j < numItems; j++) { 
+              
             this.state.items[strTime].push({
               name: '클릭하여 일정을 추가하세요.',
               height: 100
@@ -78,6 +79,7 @@ export default class AgendaScreen extends Component {
   renderItem(item) {
     return (
       <TouchableOpacity
+      
         style={[styles.item, {height: item.height}]}
         onPress={() => Alert.alert(item.name)}
       >

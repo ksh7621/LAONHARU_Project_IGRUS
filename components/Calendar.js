@@ -4,6 +4,7 @@ import {CalendarList} from 'react-native-calendars'
 import Todo from './Todo';
 import Holiday from './Holiday';
 import moment from 'moment';
+import Theme from "./Theme"
 
 // LocaleConfig.locales['fr'] = {
 //   monthNames: ['해오름달','시샘달','물오름달','잎새달','푸른달','누리달','견우직녀달','타오름달','열매달','하늘연달','미틈달','매듭달'],
@@ -20,7 +21,9 @@ const currentDate = new Date();
 
 
     return (      
+      
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        
         <CalendarList
             //캘린더 리스트는 캘린더의 params를 기본적으로 가지고 있습니다
             //이 param들은 default 형태가 있으니 필요하실 때만 적어주세요(필요할 때만 적어주셔도 된다는 이야기입니다)
@@ -88,6 +91,7 @@ const currentDate = new Date();
             pagingEnabled={true}
             
             />
+          
       </View>
      
     );
