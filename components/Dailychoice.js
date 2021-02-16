@@ -1,24 +1,32 @@
 import * as React from 'react';
-import { View, Text,Button } from 'react-native';
+import { View, Text, Button,StyleSheet } from 'react-native';
 import { NavigationContainer, } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import Todo from './Todo';
 import Diary from './Diary';
+//import Button from "./Button";
 
-function Home({ navigation }) {
+function Home({ navigation }) {;
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>Home Screen</Text>
-        <Button
-
-          title="Go to Diary"
+      <View style ={styles.container}>
+        <View style = {styles.text}><Text>선택화면</Text></View>
+        <View style = {styles.footer}>
+        <View style = {styles.button1}>
+        <Button          
+          title="Diary"
           onPress={() => navigation.navigate('Diary')}
-        />
-         <Button
+          color = 'gray'      
+        />  
+        </View>
 
-          title="Go to Todo"
+        <View style = {styles.button2}>      
+        <Button 
+          title="Todo"
           onPress={() => navigation.navigate('Todo')}
-        />
+          color = 'darkblue'         
+        /> 
+        </View>
+        </View>
       </View>
     );
   }
@@ -42,3 +50,42 @@ export default function Dailychoice() {
     );
   }
 
+
+  const styles = StyleSheet.create({
+    container:{
+      flex:1, 
+      padding: 10,
+      backgroundColor: 'white',
+      alignItems: 'center', 
+    //justifyContent: 'space-around', 
+    },
+
+    text:{
+    flex:1,  
+    alignItems: 'center',
+    justifyContent: 'center',
+   },
+
+  footer: {     
+      alignItems: 'center',
+      justifyContent: 'center',
+      marginBottom: 10,
+      borderRadius: 5,
+      width:'100%',
+      height:'15%',
+      backgroundColor: 'white',
+    },
+    button1:{
+      width: '100%',
+      height: '50%'
+    },
+    button2:{
+      width: '100%',
+      height: '50%'
+    },
+    title: {
+      fontSize: 15,
+    },
+    
+
+  });

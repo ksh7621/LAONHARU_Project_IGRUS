@@ -11,6 +11,8 @@ const Styledtext = styled.Text`
     font-family: MapoGoldenPier;
    
 `;
+
+
 // class Text extends React.Component {
 //     render(){
 //         return(
@@ -22,8 +24,9 @@ const Styledtext = styled.Text`
 // }
 // export default Text;
 
-export default function Theme({ children }) {
+export default function Theme({ children, size }) {
     return (
-    <Styledtext>{children}</Styledtext>
+    <Styledtext size={size}>{children}</Styledtext>
     );
   }
+

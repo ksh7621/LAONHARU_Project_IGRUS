@@ -4,7 +4,7 @@ import {CalendarList} from 'react-native-calendars'
 import Todo from './Todo';
 import Holiday from './Holiday';
 import moment from 'moment';
-import Theme from "./Theme"
+import Theme from "./Theme";
 
 // LocaleConfig.locales['fr'] = {
 //   monthNames: ['해오름달','시샘달','물오름달','잎새달','푸른달','누리달','견우직녀달','타오름달','열매달','하늘연달','미틈달','매듭달'],
