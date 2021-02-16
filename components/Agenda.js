@@ -83,7 +83,7 @@ export default class AgendaScreen extends Component {
         style={[styles.item, {height: item.height}]}
         onPress={() => Alert.alert(item.name)}
       >
-        <Text>{item.name}</Text>
+        <Theme>{item.name}</Theme>
       </TouchableOpacity>
     );
   }
@@ -91,7 +91,7 @@ export default class AgendaScreen extends Component {
   renderEmptyDate() {
     return (
       <View style={styles.emptyDate}>
-        <Text>일정이 없습니다.</Text>
+        <Theme>일정이 없습니다.</Theme>
       </View>
     );
   }
