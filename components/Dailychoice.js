@@ -4,7 +4,7 @@ import { NavigationContainer, } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import Todo from './Todo';
 import Diary from './Diary';
-//import Button from "./Button";
+
 
 function Home({ navigation }) {;
     return (
@@ -13,7 +13,7 @@ function Home({ navigation }) {;
         <View style = {styles.footer}>
         <View style = {styles.button1}>
         <Button          
-          title="Diary"
+          title="다이어리"
           onPress={() => navigation.navigate('Diary')}
           color = 'gray'      
         />  
@@ -21,9 +21,9 @@ function Home({ navigation }) {;
 
         <View style = {styles.button2}>      
         <Button 
-          title="Todo"
+          title="체크리스트"
           onPress={() => navigation.navigate('Todo')}
-          color = 'darkblue'         
+          color = 'navy'         
         /> 
         </View>
         </View>
@@ -57,6 +57,7 @@ export default function Dailychoice() {
       padding: 10,
       backgroundColor: 'white',
       alignItems: 'center', 
+      
     //justifyContent: 'space-around', 
     },
 
@@ -64,6 +65,7 @@ export default function Dailychoice() {
     flex:1,  
     alignItems: 'center',
     justifyContent: 'center',
+    fontFamily: 'MapoGoldenPier',
    },
 
   footer: {     

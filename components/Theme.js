@@ -24,9 +24,9 @@ const Styledtext = styled.Text`
 // }
 // export default Text;
 
-export default function Theme({ children, size }) {
+export default function Theme({ children }) {
     return (
-    <Styledtext size={size}>{children}</Styledtext>
+    <Styledtext>{children}</Styledtext>
     );
   }
 

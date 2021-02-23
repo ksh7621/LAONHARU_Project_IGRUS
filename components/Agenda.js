@@ -1,10 +1,16 @@
 import React, {Component} from 'react';
-import {Alert, StyleSheet, Text, View, TouchableOpacity} from 'react-native';
+import {Alert, StyleSheet, Text, View, TouchableOpacity,ToastAndroid} from 'react-native';
 import {Agenda} from 'react-native-calendars';
+import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer, } from '@react-navigation/native';
+import 'react-native-gesture-handler';
 import moment from 'moment';
 import Theme from "./Theme"
+import Dailychoice from './Dailychoice'
 //사이트의 example을 참고했습니다
-export default class AgendaScreen extends Component {
+
+
+class AgendaScreen extends Component {
   constructor(props) {
     super(props);
 
@@ -76,12 +82,13 @@ export default class AgendaScreen extends Component {
   }
   //아이템 뷰->이런 부분을 캘린더에 일정 추가 부분에 활용해주셔도 좋습니다
   //Todo diary 구현
-  renderItem(item) {
+  renderItem(item,{navigation} ) {
     return (
       <TouchableOpacity
       
         style={[styles.item, {height: item.height}]}
-        onPress={() => Alert.alert(item.name)}
+        //onPress={() => Alert.alert(item.name)}
+        onPress={() => navigation.navigate('Choice')}
       >
         <Theme>{item.name}</Theme>
       </TouchableOpacity>
@@ -105,6 +112,18 @@ export default class AgendaScreen extends Component {
     return date.toISOString().split('T')[0];
   }
 }
+
+const Stack = createStackNavigator();
+
+export default function AgendaRoute() {
+  return ( 
+    <Stack.Navigator>
+       <Stack.Screen name="Agenda" component={AgendaScreen} />
+       <Stack.Screen name="Choice" component={Dailychoice} />
+    </Stack.Navigator>
+  );
+}
+
 
 const styles = StyleSheet.create({
   item: {

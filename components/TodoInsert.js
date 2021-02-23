@@ -18,14 +18,15 @@ const TodoInsert = ({onAddTodo}) => {
     <View style={styles.inputContainer}>
       <TextInput
         style={styles.input}
-        placeholder="Add an item!"
+        placeholder="일정을 추가하세요."
+        fontFamily= "MapoGoldenPier"        
         placeholderTextColor={'#999'}
         onChangeText={todoInputHandler}
         value={newTodoItem}
         autoCorrect={false}
       />
       <View style={styles.button}>
-        <Button title={'ADD'} onPress={addTodoHandler}/>
+        <Button color = 'black' title={'추가'} onPress={addTodoHandler}/>
       </View>
     </View>
   );
@@ -47,7 +48,7 @@ const styles = StyleSheet.create({
   },
   button: {
     marginRight: 10,
-  },
+  }
 });
 
 export default TodoInsert;

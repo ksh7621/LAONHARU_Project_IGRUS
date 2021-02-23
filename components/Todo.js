@@ -57,12 +57,13 @@ const styles = StyleSheet.create({
     color: 'black',
     fontSize: 36,
     marginTop: 30,
-    marginBottom: 30,
+    marginBottom: 20,
     fontWeight: '300',
-    textAlign: 'center',  
+    textAlign: 'center',
+    
   },
   card: {
-    backgroundColor: 'skyblue',
+    backgroundColor: 'lightgray',
     flex: 1,
     borderTopLeftRadius: 10, // to provide rounded corners
     borderTopRightRadius: 10, // to provide rounded corners

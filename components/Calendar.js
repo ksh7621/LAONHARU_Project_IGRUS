@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { View, Text,Button, StyleSheet } from 'react-native';
-import {CalendarList} from 'react-native-calendars'
+import {CalendarList, Calendar} from 'react-native-calendars'
 import Todo from './Todo';
 import Holiday from './Holiday';
 import moment from 'moment';
@@ -16,32 +16,42 @@ import Theme from "./Theme";
 // LocaleConfig.defaultLocale = 'fr';
 
 export default function CalendarScreen({ navigation }) {
+  const currentDate = new Date(); 
+  const today = moment().format("YYYY-MM-DD");
+  const nextWeekDay = moment().add(7, 'days').format("YYYY-MM-DD");
+  const nextDay = moment().add(1, 'days').format("YYYY-MM-DD");
 
-const currentDate = new Date();
-
+  const mark = {
+    [today]: {selected: true, marked: true}
+  };
 
     return (      
       
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+       
         
         <CalendarList
             //캘린더 리스트는 캘린더의 params를 기본적으로 가지고 있습니다
             //이 param들은 default 형태가 있으니 필요하실 때만 적어주세요(필요할 때만 적어주셔도 된다는 이야기입니다)
             // 처음 앱을 켰을 때 보이는 날짜
             current={currentDate}
+            markedDates={mark} 
             //최소 날짜
             minDate={'2021-01-01'}
             //최대 날짜
-            maxDate={'2021-12-31'}
-            //공휴일 만들기
+            maxDate={'2021-12-31'}  
             
             // 날짜가 눌렸을 때 어떤 것을 실행하도록 하는 핸들러 console.log부분에 다른 component나 함수를 넣어주시면 됩니다
-            onDayPress={(day) => {
-              component= {Todo}
-              //console.log('selected day', day)
-            }}                  
+            onDayPress={(day) => {              
+             console.log('selected day', day)
+            }}        
+
+        
             // 날짜가 길게 눌렸을 때 어떤 것을 실행하도록 하는 핸들러 console.log부분에 다른 component나 함수를 넣어주시면 됩니다
-            onDayLongPress={(day) => {console.log('selected day', day)}}
+            onDayLongPress={(day) =>            
+              {console.log('selected day', day)}   
+          
+          }
             // 캘린더 맨 위에 있는 날짜 포맷을 결정해줍니다 다른 형태로 수정하고 싶으시면
             // Formatting values: http://arshaw.com/xdate/#Formatting 여기를 참고해주세요
             monthFormat={'yyyy MM'}
@@ -88,7 +98,7 @@ const currentDate = new Date();
             //수평으로 달력을 넘길 수 있게 하는 옵션
             horizontal={true}
             //페이지 단위로 보여지게 하는 옵션
-            pagingEnabled={true}
+            pagingEnabled={true}        
             
             />
           
@@ -97,6 +107,3 @@ const currentDate = new Date();
     );
   }
 
-  
-    
-    
