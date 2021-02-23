@@ -1,10 +1,13 @@
 import * as React from 'react';
 import { View, Text,Button, StyleSheet } from 'react-native';
-import {CalendarList, Calendar} from 'react-native-calendars'
+import {CalendarList, Calendar, Agenda} from 'react-native-calendars'
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 import Todo from './Todo';
 import Holiday from './Holiday';
 import moment from 'moment';
-import Theme from "./Theme";
+import AgendaScreen from './Agenda';
+
 
 // LocaleConfig.locales['fr'] = {
 //   monthNames: ['해오름달','시샘달','물오름달','잎새달','푸른달','누리달','견우직녀달','타오름달','열매달','하늘연달','미틈달','매듭달'],
@@ -15,7 +18,7 @@ import Theme from "./Theme";
 // };
 // LocaleConfig.defaultLocale = 'fr';
 
-export default function CalendarScreen({ navigation }) {
+function CalendarScreen({ navigation }) {
   const currentDate = new Date(); 
   const today = moment().format("YYYY-MM-DD");
   const nextWeekDay = moment().add(7, 'days').format("YYYY-MM-DD");
@@ -100,6 +103,20 @@ export default function CalendarScreen({ navigation }) {
             //페이지 단위로 보여지게 하는 옵션
             pagingEnabled={true}        
             
+
+            onDayPress={(day) => {
+              /*
+              console.log('selected day', day)
+              ToastAndroid.showWithGravity(
+                day.dateString,
+                ToastAndroid.SHORT,
+                ToastAndroid.CENTER
+              );   
+              */
+
+              navigation.navigate('Agenda')
+            }}
+
             />
           
       </View>
@@ -107,3 +124,13 @@ export default function CalendarScreen({ navigation }) {
     );
   }
 
+  const Stack = createStackNavigator();
+
+  export default function CalendarRoute() {
+    return ( 
+      <Stack.Navigator>
+        <Stack.Screen name="Calendar" component={CalendarScreen} />
+        <Stack.Screen name="Agenda" component={AgendaScreen} />
+      </Stack.Navigator>
+    );
+  }

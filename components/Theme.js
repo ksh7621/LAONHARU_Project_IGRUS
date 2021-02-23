@@ -8,7 +8,9 @@ import styled from 'styled-components';
 //RN에서 제공하는 다른 모듈들도 동일하게 적용하면 됩니다(VIEW, etc...)
 //https://styled-components.com/docs/basics#react-native를 참고해주세요
 const Styledtext = styled.Text`
+
     font-family: MapoGoldenPier;
+    font-size: ${props => props.primary ? 30 : 40 };
    
 `;
 
