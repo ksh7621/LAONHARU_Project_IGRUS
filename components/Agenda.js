@@ -88,7 +88,7 @@ class AgendaScreen extends Component {
       
         style={[styles.item, {height: item.height}]}
         //onPress={() => Alert.alert(item.name)}
-        onPress={() => navigation.navigate('Choice')}
+        onPress={() => this.props.navigation.navigate('Choice')}
       >
         <Theme>{item.name}</Theme>
       </TouchableOpacity>
@@ -143,6 +143,7 @@ const styles = StyleSheet.create({
   },
   TouchableOpacity:{
     fontFamily: "MapoGoldenPier", 
+    fontSize: 15,
   }
   
 });
