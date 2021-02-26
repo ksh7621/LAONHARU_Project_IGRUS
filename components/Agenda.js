@@ -90,7 +90,7 @@ class AgendaScreen extends Component {
         //onPress={() => Alert.alert(item.name)}
         onPress={() => this.props.navigation.navigate('Choice')}
       >
-        <Theme>{item.name}</Theme>
+        <Theme size = "20" marginLeft = "0">{item.name}</Theme>
       </TouchableOpacity>
     );
   }

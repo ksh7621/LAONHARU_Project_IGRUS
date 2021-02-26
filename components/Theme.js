@@ -15,7 +15,7 @@ const Styledtext = styled.Text`
 
     font-family: MapoGoldenPier;   
     font-size : ${props=> props.size || 30}px;
-    margin-left : ${props=> props.marginLeft}px;
+    margin-left : ${props=> props.marginLeft || 20}px;
 `;
 
 export default function Theme({ size, children, marginLeft }) {
