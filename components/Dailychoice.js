@@ -36,7 +36,7 @@ const Stack = createStackNavigator();
 function MyStack() {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="Home" component={Home} />
+      <Stack.Screen name="Choice" component={Home} />
       <Stack.Screen name="Diary" component={Diary} />
       <Stack.Screen name="Todo" component={Todo} />
       

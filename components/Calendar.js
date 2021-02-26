@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { View, Text,Button, StyleSheet } from 'react-native';
-import {CalendarList, Calendar, Agenda} from 'react-native-calendars'
+import {CalendarList, Calendar, Agenda,LocaleConfig,} from 'react-native-calendars'
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import Todo from './Todo';
@@ -9,14 +9,14 @@ import moment from 'moment';
 import AgendaScreen from './Agenda';
 
 
-// LocaleConfig.locales['fr'] = {
-//   monthNames: ['해오름달','시샘달','물오름달','잎새달','푸른달','누리달','견우직녀달','타오름달','열매달','하늘연달','미틈달','매듭달'],
-//   monthNamesShort: ['1.','2.','3.','4.','5.','6.','7.','8.','9.','10.','11.','12.'],
-//   dayNames: ['일요일','월요일', '화요일','수요일','목요일','금요일','토요일'],
-//   dayNamesShort: ['일', '월','화','수','목','금','토'],
-//   today: 'Aujourd\'hui'
-// };
-// LocaleConfig.defaultLocale = 'fr';
+LocaleConfig.locales['fr'] = {
+  monthNames: ['해오름달', '시샘달', '물오름달', '잎새달', '푸른달', '누리달', '견우직녀달', '타오름달', '열매달', '하늘연달', '미틈달', '매듭달'],
+  monthNamesShort: ['해오름', '시샘', '물오름', '잎새', '푸른', '누리', '견우직녀', '타오름', '열매', '하늘연', '미틈', '매듭'],
+  dayNames: ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일'],
+  dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
+  today: '오늘\'hui'
+};
+LocaleConfig.defaultLocale = 'fr';
 
 function CalendarScreen({ navigation }) {
   const currentDate = new Date(); 
