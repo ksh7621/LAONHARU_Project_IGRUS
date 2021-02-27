@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { View, Text,Button, StyleSheet } from 'react-native';
 import {CalendarList, Calendar, Agenda,LocaleConfig,} from 'react-native-calendars'
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, StackActions } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import Todo from './Todo';
 import Holiday from './Holiday';
@@ -18,21 +18,26 @@ LocaleConfig.locales['fr'] = {
 };
 LocaleConfig.defaultLocale = 'fr';
 
+
+
 function CalendarScreen({ navigation }) {
   const currentDate = new Date(); 
   const today = moment().format("YYYY-MM-DD");
   const nextWeekDay = moment().add(7, 'days').format("YYYY-MM-DD");
   const nextDay = moment().add(1, 'days').format("YYYY-MM-DD");
+  
 
   const mark = {
     [today]: {selected: true, marked: true}
   };
 
+  
+
     return (      
       
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
        
-        
+      
         <CalendarList
             //캘린더 리스트는 캘린더의 params를 기본적으로 가지고 있습니다
             //이 param들은 default 형태가 있으니 필요하실 때만 적어주세요(필요할 때만 적어주셔도 된다는 이야기입니다)
@@ -42,8 +47,8 @@ function CalendarScreen({ navigation }) {
             //최소 날짜
             minDate={'2021-01-01'}
             //최대 날짜
-            maxDate={'2021-12-31'}  
-            
+            maxDate={'2021-12-31'} 
+
             // 날짜가 눌렸을 때 어떤 것을 실행하도록 하는 핸들러 console.log부분에 다른 component나 함수를 넣어주시면 됩니다
             onDayPress={(day) => {              
              console.log('selected day', day)
@@ -85,15 +90,69 @@ function CalendarScreen({ navigation }) {
             // Disable all touch events for disabled days. can be override with disableTouchEvent in markedDates
             disableAllTouchEventsForDisabledDays={true}
             // Replace default month and year title with custom one. the function receive a date as parameter.
-            // renderHeader={(date) => {/*Return JSX*/}}
+            renderHeader={(date) => {
+              const header = date.toString('MMMM yyyy');
+             const [month, year] = header.split(' ');
+             const textStyle = {
+          fontSize: 18,
+          fontWeight: 'bold',
+          paddingTop: 10,
+          paddingBottom: 10,
+          color: '#5E60CE',
+          paddingRight: 5,
+          //marginLeft: 5,
+             };
+
+             
+             return (
+              <View
+                style={{
+                  flexDirection: 'row',
+                  width: '100%',
+                  justifyContent: 'space-between',
+                  marginTop: 10,
+                  marginBottom: 10,
+                  marginLeft: 5,
+                }}
+              >
+                 <Text style={{ ...textStyle}}>{`${month}`}</Text>
+                <Text style={{...textStyle}}>{year}</Text>
+
+                {/* <Text style={{marginLeft: 5, ...textStyle}}>{`${month}`}</Text>
+                <Text style={{marginRight: 5, ...textStyle}}>{year}</Text> */}
+              </View>
+            );
+          }}
+
+          theme={{
+            'stylesheet.calendar.header': {
+              dayHeader: {
+                fontWeight: '600',
+                color: '#48BFE3',
+                
+              }
+            },
+            'stylesheet.day.basic': {
+              today: {
+                borderColor: '#48BFE3',
+                borderWidth: 0.8
+              },
+              todayText: {
+                color: '#5390D9',
+                fontWeight: '800'
+              }
+            }
+    
+            
+            }}
             //페이지 사이로 스와이프 하는 옵션
             enableSwipeMonths={true}
             // Callback which gets executed when visible months change in scroll view. Default = undefined
             onVisibleMonthsChange={(months) => {console.log('now these months are visible', months);}}
             //이전 스크롤 할 수 있는 페이지범위
-            pastScrollRange={50}
+            pastScrollRange={24}
             //다음 스크롤 할 수 있는 페이지
-            futureScrollRange={50}
+            futureScrollRange={24}
             // 캘린더 리스트의 스크롤 허용하는 옵션
             scrollEnabled={true}
             //스크롤바 보이게 하는 옵션
@@ -115,12 +174,15 @@ function CalendarScreen({ navigation }) {
               */
 
               navigation.navigate('Agenda')
+              
             }}
+          
 
             />
-          
+               
       </View>
-     
+          
+        
     );
   }
 
@@ -134,3 +196,5 @@ function CalendarScreen({ navigation }) {
       </Stack.Navigator>
     );
   }
+
+  

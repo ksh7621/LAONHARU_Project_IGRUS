@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Alert, StyleSheet, Text, View, TouchableOpacity,ToastAndroid} from 'react-native';
 import {Agenda} from 'react-native-calendars';
 import { createStackNavigator } from '@react-navigation/stack';
-import { NavigationContainer, } from '@react-navigation/native';
+import { NavigationContainer, StackActions } from '@react-navigation/native';
 import 'react-native-gesture-handler';
 import moment from 'moment';
 import Theme from "./Theme"
@@ -25,6 +25,7 @@ class AgendaScreen extends Component {
     const today = this.state.currentDate;
     // const day = moment(today).format("dddd");
     //const date = moment(today).format("MMMM D, YYYY");
+    
     return (
       <Agenda      
         items={this.state.items}
