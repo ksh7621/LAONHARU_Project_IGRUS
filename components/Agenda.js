@@ -7,6 +7,9 @@ import 'react-native-gesture-handler';
 import moment from 'moment';
 import Theme from "./Theme"
 import Dailychoice from './Dailychoice'
+import Holiday from './Holiday'
+import axios from 'axios';
+
 //사이트의 example을 참고했습니다
 
 
@@ -15,13 +18,70 @@ class AgendaScreen extends Component {
     super(props);
 
     this.state = {
+      isLoading:true,
       items: {},
       currentDate: new Date(),
       //markedDate: moment(new Date()).format("YYYY-MM-DD")
     };
   }
 
+  componentDidMount(){
+    this.getDate()
+  }
+  getDate(){
+    const API_KEY ="UWsaSf5JCiPhMQY2FItG62tXaljrXrnt731SR%2FC%2BfEem9RO1lcYhqAy0M1YPWY9KhFX%2FdEFM6U%2BeLvaZ2URGcQ%3D%3D"
+    const YEAR = 2021;
+    const HEIGHT = 50;
+    //const MONTH
+    //2020년 공휴일들 가져오는 url
+    const url = `http://apis.data.go.kr/B090041/openapi/service/SpcdeInfoService/getRestDeInfo?serviceKey=${API_KEY}&solYear=${YEAR}&_type=json&numOfRows=30`;
+
+    axios.get(url).then((response)=>{
+        const datas= response.data.response.body.items.item;
+        const items = {}
+        //js의 for of 문 찾아보세요
+        if(datas.length>0){
+          console.log("데이터 가져옴")
+          for(let data of datas){
+            let arr = []
+            let datename = data.dateName
+            //20200101을 2020-01-01로 변환
+            let locdate = data.locdate.toString()
+            let year = locdate.substring(0,4)
+            let month = locdate.substring(4,6)
+            let day = locdate.substring(6,8)
+            let rename = `${year}-${month}-${day}`
+            let nameobj = [{name : datename, height: HEIGHT}]
+            arr.push(nameobj)
+            //items에 기념일 추가
+            items[rename] = nameobj 
+          }
+          this.setState({
+            isLoading: false,
+            items : items
+        });
+      }else{
+        console.log("데이터 가져오기 실패")
+      }
+       
+        
+       
+    })}
+
+    
+
   render() {
+
+    const {isLoading} = this.state
+    if(isLoading){
+        return(
+          <View>
+              <Text >
+                Loading..
+              </Text>
+          </View>
+        )
+    }else{
     const today = this.state.currentDate;
     // const day = moment(today).format("dddd");
     //const date = moment(today).format("MMMM D, YYYY");
@@ -50,6 +110,7 @@ class AgendaScreen extends Component {
         // hideExtraDays={false}
       />
     );
+    }
   }
   //임의로 아이템 생성
   loadItems(day) {
@@ -77,9 +138,10 @@ class AgendaScreen extends Component {
         newItems[key] = this.state.items[key];
       });
       this.setState({
+        isLoading:false,
         items: newItems
       });
-    }, 1000);
+    }, 500);
   }
   //아이템 뷰->이런 부분을 캘린더에 일정 추가 부분에 활용해주셔도 좋습니다
   //Todo diary 구현
@@ -98,9 +160,11 @@ class AgendaScreen extends Component {
   //빈 날짜를 보여주는 뷰
   renderEmptyDate() {
     return (
-      <View style={styles.emptyDate}>
-        <Theme>일정이 없습니다.</Theme>
-      </View>
+      <TouchableOpacity
+        style={[styles.item, {height: 50}]}
+      >
+        <Theme size ="20" marginLeft = "0">일정이 없습니다</Theme>
+      </TouchableOpacity>
     );
   }
   //줄이 바뀌었다고 알려주는 뷰
