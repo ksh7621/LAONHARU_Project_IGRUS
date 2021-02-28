@@ -122,15 +122,15 @@ class AgendaScreen extends Component {
 
         if (!this.state.items[strTime]) {
           this.state.items[strTime] = [];
-          const numItems = Math.floor(Math.random()+1);
+          //const numItems = Math.floor(Math.random()+1);
           
-          for (let j = 0; j < numItems; j++) { 
+          // for (let j = 0; j < numItems; j++) { 
               
-            this.state.items[strTime].push({
-              name: '클릭하여 일정을 추가하세요.',
-              height: 100
-            });
-          }
+          //   this.state.items[strTime].push({
+          //     name: '클릭하여 일정을 추가하세요.',
+          //     height: 100
+          //   });
+          // }
         }
       }
       const newItems = {};
@@ -162,8 +162,9 @@ class AgendaScreen extends Component {
     return (
       <TouchableOpacity
         style={[styles.item, {height: 50}]}
+        onPress={() => this.props.navigation.navigate('Choice')}
       >
-        <Theme size ="20" marginLeft = "0">일정이 없습니다</Theme>
+        <Theme size ="20" marginLeft = "0">클릭하여 일정을 추가해주세요</Theme>
       </TouchableOpacity>
     );
   }
