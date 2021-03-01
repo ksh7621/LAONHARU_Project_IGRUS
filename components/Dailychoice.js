@@ -13,16 +13,16 @@ function Home({ navigation }) {;
         <View style = {styles.footer}>
         <View style = {styles.button1}>
         <Button          
-          title="다이어리"
-          onPress={() => navigation.navigate('Diary')}
+          title="줄글"
+          onPress={() => navigation.navigate('줄글')}
           color = 'gray'      
         />  
         </View>
 
         <View style = {styles.button2}>      
         <Button 
-          title="체크리스트"
-          onPress={() => navigation.navigate('Todo')}
+          title="오늘 일정"
+          onPress={() => navigation.navigate('오늘 일정')}
           color = 'navy'         
         /> 
         </View>
@@ -36,9 +36,9 @@ const Stack = createStackNavigator();
 function MyStack() {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="Choice" component={Home} />
-      <Stack.Screen name="Diary" component={Diary} />
-      <Stack.Screen name="Todo" component={Todo} />
+      <Stack.Screen name="선택" component={Home} />
+      <Stack.Screen name="줄글" component={Diary} />
+      <Stack.Screen name="오늘 일정" component={Todo} />
       
     </Stack.Navigator>
   );

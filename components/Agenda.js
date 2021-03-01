@@ -151,7 +151,7 @@ class AgendaScreen extends Component {
       
         style={[styles.item, {height: item.height}]}
         //onPress={() => Alert.alert(item.name)}
-        onPress={() => this.props.navigation.navigate('Choice')}
+        onPress={() => this.props.navigation.navigate('선택')}
       >
         <Theme size = "20" marginLeft = "0">{item.name}</Theme>
       </TouchableOpacity>
@@ -162,7 +162,7 @@ class AgendaScreen extends Component {
     return (
       <TouchableOpacity
         style={[styles.item, {height: 50}]}
-        onPress={() => this.props.navigation.navigate('Choice')}
+        onPress={() => this.props.navigation.navigate('선택')}
       >
         <Theme size ="20" marginLeft = "0">클릭하여 일정을 추가해주세요</Theme>
       </TouchableOpacity>
@@ -184,8 +184,8 @@ const Stack = createStackNavigator();
 export default function AgendaRoute() {
   return ( 
     <Stack.Navigator>
-       <Stack.Screen name="Agenda" component={AgendaScreen} />
-       <Stack.Screen name="Choice" component={Dailychoice} />
+       <Stack.Screen name="한주" component={AgendaScreen} />
+       <Stack.Screen name="선택" component={Dailychoice} />
     </Stack.Navigator>
   );
 }

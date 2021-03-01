@@ -36,7 +36,7 @@ const Todo = () => {
 
     return (
         <SafeAreaView style={styles.container}>
-          <Text style={styles.appTitle}>To do list</Text>
+          <Text style={styles.appTitle}>오늘 일정</Text>
           <View style={styles.card}>
              
             <TodoInsert onAddTodo={addTodo} /> 

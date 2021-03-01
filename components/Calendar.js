@@ -10,7 +10,9 @@ import AgendaScreen from './Agenda';
 
 
 LocaleConfig.locales['fr'] = {
-  monthNames: ['해오름달', '시샘달', '물오름달', '잎새달', '푸른달', '누리달', '견우직녀달', '타오름달', '열매달', '하늘연달', '미틈달', '매듭달'],
+  monthNames: ['해오름달(1월)', '시샘달(2월)', '물오름달(3월)', '잎새달(4월)', 
+  '푸른달(5월)', '누리달(6월)', '견우직녀달(7월)', '타오름달(8월)', '열매달(9월)', 
+  '하늘연달(10월)', '미틈달(11월)', '매듭달(12월)'],
   monthNamesShort: ['해오름', '시샘', '물오름', '잎새', '푸른', '누리', '견우직녀', '타오름', '열매', '하늘연', '미틈', '매듭'],
   dayNames: ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일'],
   dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
@@ -99,7 +101,7 @@ function CalendarScreen({ navigation }) {
           paddingTop: 10,
           paddingBottom: 10,
           color: '#5E60CE',
-          paddingRight: 5,
+          //paddingRight: 5,
           //marginLeft: 5,
              };
 
@@ -108,18 +110,21 @@ function CalendarScreen({ navigation }) {
               <View
                 style={{
                   flexDirection: 'row',
-                  width: '100%',
+                  width: '70%',
                   justifyContent: 'space-between',
                   marginTop: 10,
                   marginBottom: 10,
-                  marginLeft: 5,
+                  marginLeft: 5,                  
                 }}
               >
-                 <Text style={{ ...textStyle}}>{`${month}`}</Text>
-                <Text style={{...textStyle}}>{year}</Text>
+              
 
-                {/* <Text style={{marginLeft: 5, ...textStyle}}>{`${month}`}</Text>
-                <Text style={{marginRight: 5, ...textStyle}}>{year}</Text> */}
+
+                 {/* <Text style={{ ...textStyle}}>{`${month}`}</Text>
+                <Text style={{...textStyle}}>{year}</Text> */}
+
+                <Text style={{marginLeft: 5, ...textStyle}}>{`${month}`}</Text>
+                <Text style={{marginRight: 5, ...textStyle}}>{year}</Text>
               </View>
             );
           }}
@@ -129,7 +134,7 @@ function CalendarScreen({ navigation }) {
               dayHeader: {
                 fontWeight: '600',
                 color: '#48BFE3',
-                
+              
               }
             },
             'stylesheet.day.basic': {
@@ -150,9 +155,9 @@ function CalendarScreen({ navigation }) {
             // Callback which gets executed when visible months change in scroll view. Default = undefined
             onVisibleMonthsChange={(months) => {console.log('now these months are visible', months);}}
             //이전 스크롤 할 수 있는 페이지범위
-            pastScrollRange={24}
+            pastScrollRange={5}
             //다음 스크롤 할 수 있는 페이지
-            futureScrollRange={24}
+            futureScrollRange={5}
             // 캘린더 리스트의 스크롤 허용하는 옵션
             scrollEnabled={true}
             //스크롤바 보이게 하는 옵션
@@ -173,7 +178,7 @@ function CalendarScreen({ navigation }) {
               );   
               */
 
-              navigation.navigate('Agenda')
+              navigation.navigate('한주')
               
             }}
           
@@ -191,8 +196,8 @@ function CalendarScreen({ navigation }) {
   export default function CalendarRoute() {
     return ( 
       <Stack.Navigator>
-        <Stack.Screen name="Calendar" component={CalendarScreen} />
-        <Stack.Screen name="Agenda" component={AgendaScreen} />
+        <Stack.Screen name="한달" component={CalendarScreen} />
+        <Stack.Screen name="한주" component={AgendaScreen} />
       </Stack.Navigator>
     );
   }

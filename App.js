@@ -20,13 +20,11 @@ export default function App() {
           tabBarIcon: ({ focused, color, size }) => {
             let iconName;
 
-            if (route.name === 'Home') {
+            if (route.name === '홈') {
               iconName = focused ? 'home-outline' : 'home-outline';
-            } else if (route.name === 'Calendar'){
+            } else if (route.name === '한달'){
               iconName = focused ? 'calendar-outline' : 'calendar-outline';
-            } else if (route.name === 'Agenda'){
-              iconName = focused ? 'apps-outline' : 'apps-outline';
-            }
+            } 
 
             // You can return any component that you like here!
             return <Icon name={iconName} size={size}  color={color}/>;
@@ -38,8 +36,8 @@ export default function App() {
         }}
         >
 
-        <Tab.Screen name="Home" component={Home} />
-        <Tab.Screen name="Calendar" component={Calendar} />
+        <Tab.Screen name="홈" component={Home} />
+        <Tab.Screen name="한달" component={Calendar} />
         {/* <Tab.Screen name="Agenda" component={Agenda} /> */}
       
       </Tab.Navigator>
