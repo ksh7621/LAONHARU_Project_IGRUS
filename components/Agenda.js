@@ -13,7 +13,7 @@ import axios from 'axios';
 //사이트의 example을 참고했습니다
 
 
-class AgendaScreen extends Component {
+export default class AgendaScreen extends Component {
   constructor(props) {
     super(props);
 
@@ -179,16 +179,16 @@ class AgendaScreen extends Component {
   }
 }
 
-const Stack = createStackNavigator();
+// const Stack = createStackNavigator();
 
-export default function AgendaRoute() {
-  return ( 
-    <Stack.Navigator>
-       <Stack.Screen name="한주" component={AgendaScreen} />
-       <Stack.Screen name="선택" component={Dailychoice} />
-    </Stack.Navigator>
-  );
-}
+// export default function AgendaRoute() {
+//   return ( 
+//     <Stack.Navigator>
+//        <Stack.Screen name="한주" component={AgendaScreen} />
+//        <Stack.Screen name="선택" component={Dailychoice} />
+//     </Stack.Navigator>
+//   );
+// }
 
 
 const styles = StyleSheet.create({

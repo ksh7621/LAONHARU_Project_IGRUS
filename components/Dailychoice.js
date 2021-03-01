@@ -6,7 +6,7 @@ import Todo from './Todo';
 import Diary from './Diary';
 
 
-function Home({ navigation }) {;
+export default function Home({ navigation }) {;
     return (
       <View style ={styles.container}>
         <View style = {styles.text}><Text>선택화면</Text></View>
@@ -31,24 +31,24 @@ function Home({ navigation }) {;
     );
   }
 
-const Stack = createStackNavigator();
+// const Stack = createStackNavigator();
 
-function MyStack() {
-  return (
-    <Stack.Navigator>
-      <Stack.Screen name="선택" component={Home} />
-      <Stack.Screen name="줄글" component={Diary} />
-      <Stack.Screen name="오늘 일정" component={Todo} />
+// function MyStack() {
+//   return (
+//     <Stack.Navigator>
+//       <Stack.Screen name="선택" component={Home} />
+//       <Stack.Screen name="줄글" component={Diary} />
+//       <Stack.Screen name="오늘 일정" component={Todo} />
       
-    </Stack.Navigator>
-  );
-}
+//     </Stack.Navigator>
+//   );
+// }
 
-export default function Dailychoice() {
-    return (
-      <MyStack />
-    );
-  }
+// export default function Dailychoice() {
+//     return (
+//       <MyStack />
+//     );
+//   }
 
 
   const styles = StyleSheet.create({

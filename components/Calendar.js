@@ -3,10 +3,12 @@ import { View, Text,Button, StyleSheet } from 'react-native';
 import {CalendarList, Calendar, Agenda,LocaleConfig,} from 'react-native-calendars'
 import { NavigationContainer, StackActions } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import Todo from './Todo';
 import Holiday from './Holiday';
 import moment from 'moment';
 import AgendaScreen from './Agenda';
+import Dailychoice from './Dailychoice'
+import Todo from './Todo';
+import Diary from './Diary';
 
 
 LocaleConfig.locales['fr'] = {
@@ -198,6 +200,9 @@ function CalendarScreen({ navigation }) {
       <Stack.Navigator>
         <Stack.Screen name="한달" component={CalendarScreen} />
         <Stack.Screen name="한주" component={AgendaScreen} />
+        <Stack.Screen name="선택" component={Dailychoice} />
+        <Stack.Screen name="줄글" component={Diary} />
+        <Stack.Screen name="오늘 일정" component={Todo} /> 
       </Stack.Navigator>
     );
   }
